@@ -46,15 +46,13 @@ import styles from "./App.module.scss";
  */
 export const App: FC = () => (
   <ChakraProvider theme={theme}>
-    <div className={styles.App}>
-      <header className={styles.header}>
-        <nav>Navbar placeholder</nav>
-        <ColorModeSwitcher />
-      </header>
-      <body>
-        <Editor />
-        <Dashboard />
-      </body>
-    </div>
+    <header className={styles.header}>
+      <nav>Navbar placeholder</nav>
+      <ColorModeSwitcher />
+    </header>
+    <body>
+      <Editor />
+      <Dashboard />
+    </body>
   </ChakraProvider>
 );
