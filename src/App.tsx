@@ -1,14 +1,16 @@
 import { ChakraProvider, theme } from "@chakra-ui/react";
 import React, { FC } from "react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import Editor from "./pages/editor/Editor";
+import Dashboard from "./pages/dashboard/Dashboard";
 import styles from "./App.module.scss";
 
 /**
  * TODO write function
  * 1. Make placeholder app page. (DONE)
- * 2. Make placeholder editor page.
- * 3. Make placeholder read page.
- * 4. Put placeholder editor and read pages in app page.
+ * 2. Make placeholder editor page. (DONE)
+ * 3. Make placeholder read page. (DONE)
+ * 4. Put placeholder editor and read pages in app page. (DONE)
  * 5. Build switch in top-left corner to toggle between editor and read pages.
  * 6. Switch to editor mode.
  * 7. Make placeholder for widget component
@@ -44,9 +46,15 @@ import styles from "./App.module.scss";
  */
 export const App: FC = () => (
   <ChakraProvider theme={theme}>
-    <div className={styles.toggleDarkModeButtonContainer}>
-      <ColorModeSwitcher />
+    <div className={styles.App}>
+      <header className={styles.header}>
+        <nav>Navbar placeholder</nav>
+        <ColorModeSwitcher />
+      </header>
+      <body>
+        <Editor />
+        <Dashboard />
+      </body>
     </div>
-    <div>App Placeholder</div>
   </ChakraProvider>
 );
