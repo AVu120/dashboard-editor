@@ -45,9 +45,7 @@ import styles from "./App.module.scss";
 export const App: FC = () => (
   <ChakraProvider theme={theme}>
     <div className={styles.toggleDarkModeButtonContainer}>
-      <ColorModeSwitcher
-      // style={{ position: "fixed", top: "20px", right: "20px" }}
-      />
+      <ColorModeSwitcher />
     </div>
     <div>App Placeholder</div>
   </ChakraProvider>
