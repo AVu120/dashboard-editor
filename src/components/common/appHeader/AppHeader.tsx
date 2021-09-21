@@ -60,11 +60,19 @@ const AppHeader: FC<IAppHeaderProps> = ({
             variant="outline"
           />
           <MenuList>
-            {availableWidgetOptions
-              .filter((option) => !layout.some((widget) => widget.i === option))
-              .map((option) => (
-                <MenuItem onClick={() => addWidget(option)}>{option}</MenuItem>
-              ))}
+            {availableWidgetOptions.length ? (
+              availableWidgetOptions
+                .filter(
+                  (option) => !layout.some((widget) => widget.i === option)
+                )
+                .map((option) => (
+                  <MenuItem onClick={() => addWidget(option)}>
+                    {option}
+                  </MenuItem>
+                ))
+            ) : (
+              <MenuItem>No options available.</MenuItem>
+            )}
           </MenuList>
         </Menu>
       </nav>
