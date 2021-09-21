@@ -75,7 +75,7 @@ export const App: FC = () => {
         ]
       );
     }
-    setLayout([{ i: "0", x: 0, y: 0, w: 2, h: 2 }]);
+    setLayout([{ i, x: 0, y: 0, w: 2, h: 2 }]);
   };
 
   /**

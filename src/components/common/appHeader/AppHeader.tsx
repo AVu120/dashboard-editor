@@ -1,6 +1,14 @@
 import React, { FC, ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Switch } from "@chakra-ui/switch";
-import { FormControl, FormLabel, IconButton } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  IconButton,
+  MenuButton,
+  Menu,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
 import styles from "./AppHeader.module.scss";
 import { IWidgetPosition } from "../../../types/common";
 import { AddIcon } from "@chakra-ui/icons";
@@ -18,6 +26,17 @@ const AppHeader: FC<IAppHeaderProps> = ({
   setIsEditorModeOn,
   addWidget,
 }) => {
+  const allWidgetOptions = [
+    "SimpleLineChart",
+    "StackedAreaChart",
+    "MixBarChart",
+    "StackedBarChart",
+    "SimpleScatterChart",
+  ];
+
+  const availableWidgetOptions = allWidgetOptions.filter(
+    (option) => !layout.some((widget) => widget.i === option)
+  );
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -33,18 +52,21 @@ const AppHeader: FC<IAppHeaderProps> = ({
             }
           />
         </FormControl>
-        <IconButton
-          className={styles.addWidgetButton}
-          onClick={() =>
-            addWidget(
-              layout.length
-                ? (Number(layout[layout.length - 1].i) + 1).toString()
-                : "0"
-            )
-          }
-          aria-label="Add Widget"
-          icon={<AddIcon />}
-        />
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="add-widget-options"
+            icon={<AddIcon />}
+            variant="outline"
+          />
+          <MenuList>
+            {availableWidgetOptions
+              .filter((option) => !layout.some((widget) => widget.i === option))
+              .map((option) => (
+                <MenuItem onClick={() => addWidget(option)}>{option}</MenuItem>
+              ))}
+          </MenuList>
+        </Menu>
       </nav>
       <ColorModeSwitcher />
     </header>
