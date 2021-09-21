@@ -31,7 +31,6 @@ const WidgetGrid: FC<IEditorProps> = ({
       {layout.map((item) => (
         <div key={item.i}>
           <WidgetCard
-            title={item.i}
             data-grid={item}
             deleteWidget={deleteWidget}
             i={item.i}

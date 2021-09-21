@@ -3,13 +3,11 @@ import styles from "./WidgetCard.module.scss";
 import { CloseButton } from "@chakra-ui/react";
 
 interface IWidgetCardProps {
-  title: string;
   deleteWidget: (i: string) => void;
   i: string;
   isEditorModeOn: boolean;
 }
 const WidgetCard: FC<IWidgetCardProps> = ({
-  title,
   deleteWidget,
   i,
   isEditorModeOn,
@@ -21,7 +19,7 @@ const WidgetCard: FC<IWidgetCardProps> = ({
       }`}
     >
       <header className={styles.header}>
-        <div>{title}</div>
+        <div>{i}</div>
         {isEditorModeOn && <CloseButton onClick={() => deleteWidget(i)} />}
       </header>
     </div>
