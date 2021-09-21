@@ -6,6 +6,7 @@ import styles from "./App.module.scss";
 import { NUMBER_OF_COLUMNS } from "../src/utils/constants";
 import { IWidgetPosition } from "../src/types/common";
 import AppHeader from "./components/common/appHeader/AppHeader";
+import "./App.scss";
 /**
  * TODO write function
  * 1. Make placeholder app page. (DONE)
