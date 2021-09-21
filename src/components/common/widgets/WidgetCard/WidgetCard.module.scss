@@ -1,9 +1,14 @@
 .WidgetCard {
-  // height: 200px;
-  // width: 200px;
-  border: 1px solid red;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   height: 100%;
-  width: 100%;
+  border-radius: 4px;
+  cursor: grab;
+  background-color: rgb(251, 252, 254);
+}
+
+.WidgetCard:hover {
+  border: 1px solid rgb(74, 200, 161);
 }
 
 .header {

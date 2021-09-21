@@ -14,16 +14,16 @@ import styles from "./App.module.scss";
  * 4. Put placeholder editor and read pages in app page. (DONE)
  * 5. Build switch in top-left corner to toggle between editor and read pages. (DONE)
  * 6. Switch to editor mode. (DONE)
- * 7. Make placeholder for widget component
+ * 7. Make placeholder for widget component (DONE)
  * 8. Create chart component with https://www.npmjs.com/package/recharts starting with simple bar chart with mock data.
  * 9. Create stacked bar chart with mock data.
  * 10. Create add widget button with dropdown that allows you to toggle between chart types.
- * 11. Create draggable/resizable grid with https://www.npmjs.com/package/react-grid-layout.
- * 12. Make responsive and performant.
- * 13. Create empty widget panel.
+ * 11. Create draggable/resizable grid with https://www.npmjs.com/package/react-grid-layout. (DONE)
+ * 12. Make responsive and performant. (DONE)
+ * 13. Create empty widget panel. (DONE)
  * 14. Make it 2 x 2 squares by default.
  * 15. Make responsive and performant.
- * 16. Make resizable/draggable (and make sure mouse icon corresponds to resize/drag region and hover turns border green).
+ * 16. Make resizable/draggable (and make sure mouse icon corresponds to resize/drag region and hover turns border green). (DONE)
  * 17. Make the widget panel display the mock simple bar chart.
  * 18. Mock multiples of this widget panel, make sure everything works.
  * 19. Make responsive and performant.
