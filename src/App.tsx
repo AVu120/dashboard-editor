@@ -133,9 +133,15 @@ export const App: FC = () => {
               layout={layout}
               setLayout={setLayout}
               deleteWidget={deleteWidget}
+              isEditorModeOn={isEditorModeOn}
             />
           ) : (
-            <Dashboard />
+            <Dashboard
+              layout={layout}
+              setLayout={setLayout}
+              deleteWidget={deleteWidget}
+              isEditorModeOn={isEditorModeOn}
+            />
           )}
         </body>
       </div>

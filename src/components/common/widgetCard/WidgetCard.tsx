@@ -6,13 +6,23 @@ interface IWidgetCardProps {
   title: string;
   deleteWidget: (i: string) => void;
   i: string;
+  isEditorModeOn: boolean;
 }
-const WidgetCard: FC<IWidgetCardProps> = ({ title, deleteWidget, i }) => {
+const WidgetCard: FC<IWidgetCardProps> = ({
+  title,
+  deleteWidget,
+  i,
+  isEditorModeOn,
+}) => {
   return (
-    <div className={styles.WidgetCard}>
+    <div
+      className={`${styles.WidgetCard} ${
+        isEditorModeOn && styles.WidgetCardInEditMode
+      }`}
+    >
       <header className={styles.header}>
         <div>{title}</div>
-        <CloseButton onClick={() => deleteWidget(i)} />
+        {isEditorModeOn && <CloseButton onClick={() => deleteWidget(i)} />}
       </header>
     </div>
   );

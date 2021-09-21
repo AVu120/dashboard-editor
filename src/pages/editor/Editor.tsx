@@ -1,38 +1,22 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
-import WidgetCard from "../../components/common/widgetCard/WidgetCard";
-import RGL, { WidthProvider } from "react-grid-layout";
 import { IWidgetPosition } from "../../types/common";
-import "react-grid-layout/css/styles.css";
-
-const ReactGridLayout = WidthProvider(RGL);
+import WidgetGrid from "../../components/common/widgetGrid/WidgetGrid";
 
 interface IEditorProps {
   layout: IWidgetPosition[];
   setLayout: Dispatch<SetStateAction<IWidgetPosition[]>>;
   deleteWidget: (i: string) => void;
+  isEditorModeOn: boolean;
 }
 
-const Editor: FC<IEditorProps> = ({ layout, setLayout, deleteWidget }) => {
+const Editor: FC<IEditorProps> = ({
+  layout,
+  setLayout,
+  deleteWidget,
+  isEditorModeOn,
+}) => {
   return (
-    <ReactGridLayout
-      className="layout"
-      layout={layout}
-      cols={6}
-      isDraggable
-      isResizable
-      onLayoutChange={(layout) => setLayout(layout)}
-    >
-      {layout.map((item) => (
-        <div key={item.i}>
-          <WidgetCard
-            title={item.i}
-            data-grid={item}
-            deleteWidget={deleteWidget}
-            i={item.i}
-          />
-        </div>
-      ))}
-    </ReactGridLayout>
+    <WidgetGrid {...{ layout, setLayout, deleteWidget, isEditorModeOn }} />
   );
 };
 

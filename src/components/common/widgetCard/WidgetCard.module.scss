@@ -3,15 +3,17 @@
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   height: 100%;
   border-radius: 4px;
-  cursor: grab;
   background-color: rgb(251, 252, 254);
-}
-
-.WidgetCard:hover {
-  border: 1px solid rgb(74, 200, 161);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+}
+
+.WidgetCardInEditMode {
+  cursor: grab;
+}
+.WidgetCardInEditMode:hover {
+  border: 1px solid rgb(74, 200, 161);
 }
