@@ -1,6 +1,7 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
 import { IWidgetPosition } from "../../types/common";
 import WidgetGrid from "../../components/common/widgetGrid/WidgetGrid";
+import styles from "./Editor.module.scss";
 
 interface IEditorProps {
   layout: IWidgetPosition[];
@@ -15,8 +16,22 @@ const Editor: FC<IEditorProps> = ({
   deleteWidget,
   isEditorModeOn,
 }) => {
+  const numberOfEmptyPanelsInGrid =
+    // layout.length
+    //   ? Math.max(...layout.map((widget) => widget.y)) * 24 + 24
+    //   : 24;
+    24;
   return (
-    <WidgetGrid {...{ layout, setLayout, deleteWidget, isEditorModeOn }} />
+    <div className={styles.Editor}>
+      <div className={styles.emptyPanelsgrid}>
+        {Array.from({ length: numberOfEmptyPanelsInGrid }).map((_) => (
+          <div className={styles.emptyPanel}></div>
+        ))}
+      </div>
+      <div className={styles.widgetLayout}>
+        <WidgetGrid {...{ layout, setLayout, deleteWidget, isEditorModeOn }} />
+      </div>
+    </div>
   );
 };
 
