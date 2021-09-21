@@ -29,14 +29,14 @@ import { AddIcon } from "@chakra-ui/icons";
  * 11. Create draggable/resizable grid with https://www.npmjs.com/package/react-grid-layout. (DONE)
  * 12. Make responsive and performant. (DONE)
  * 13. Create empty widget panel. (DONE)
- * 14. Make it 2 x 2 squares by default.
- * 15. Make responsive and performant.
+ * 14. Make it 2 x 2 squares by default. (DONE)
+ * 15. Make responsive and performant. (DONE)
  * 16. Make resizable/draggable (and make sure mouse icon corresponds to resize/drag region and hover turns border green). (DONE)
  * 17. Make the widget panel display the mock simple bar chart.
- * 18. Mock multiples of this widget panel, make sure everything works.
+ * 18. Mock multiples of this widget panel, make sure everything works. (DONE)
  * 19. Make responsive and performant.
  * 20. Add a menu icon dropdown in the top-right corner of each widget.
- * 21. Add a delete option which deletes the widget.
+ * 21. Add a delete option which deletes the widget. (DONE)
  * 22. Make sure still responsive and performant.
  * 23. Try and create a base of 6 * X matrix where 6 is a fixed
  *     number of columns and X is a number of rows which increments dynamically as more widgets are added to the board. Min 2 rows when dashboard is empty
@@ -97,46 +97,48 @@ export const App: FC = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <header className={styles.header}>
-        <nav className={styles.nav}>
-          <FormControl display="flex" alignItems="center">
-            <FormLabel htmlFor="editor-mode" mb="0">
-              Editor Mode
-            </FormLabel>
-            <Switch
-              id="editor-mode"
-              isChecked={isEditorModeOn}
-              onChange={(e: ChangeEvent<HTMLInputElement>): void =>
-                setIsEditorModeOn(e.target.checked)
+      <div className={styles.App}>
+        <header className={styles.header}>
+          <nav className={styles.nav}>
+            <FormControl display="flex" alignItems="center">
+              <FormLabel htmlFor="editor-mode" mb="0">
+                Editor Mode
+              </FormLabel>
+              <Switch
+                id="editor-mode"
+                isChecked={isEditorModeOn}
+                onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+                  setIsEditorModeOn(e.target.checked)
+                }
+              />
+            </FormControl>
+            <IconButton
+              className={styles.addWidgetButton}
+              onClick={() =>
+                addWidget(
+                  layout.length
+                    ? (Number(layout[layout.length - 1].i) + 1).toString()
+                    : "0"
+                )
               }
+              aria-label="Add Widget"
+              icon={<AddIcon />}
             />
-          </FormControl>
-          <IconButton
-            className={styles.addWidgetButton}
-            onClick={() =>
-              addWidget(
-                layout.length
-                  ? (Number(layout[layout.length - 1].i) + 1).toString()
-                  : "0"
-              )
-            }
-            aria-label="Add Widget"
-            icon={<AddIcon />}
-          />
-        </nav>
-        <ColorModeSwitcher />
-      </header>
-      <body className={styles.body}>
-        {isEditorModeOn ? (
-          <Editor
-            layout={layout}
-            setLayout={setLayout}
-            deleteWidget={deleteWidget}
-          />
-        ) : (
-          <Dashboard />
-        )}
-      </body>
+          </nav>
+          <ColorModeSwitcher />
+        </header>
+        <body className={styles.body}>
+          {isEditorModeOn ? (
+            <Editor
+              layout={layout}
+              setLayout={setLayout}
+              deleteWidget={deleteWidget}
+            />
+          ) : (
+            <Dashboard />
+          )}
+        </body>
+      </div>
     </ChakraProvider>
   );
 };

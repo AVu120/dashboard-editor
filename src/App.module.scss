@@ -1,3 +1,7 @@
+.App {
+  position: relative;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -5,6 +9,11 @@
   width: 100%;
   height: 50px;
   padding: 0 5px 0 15px;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  z-index: 2;
+  background-color: white;
 }
 
 .nav {
@@ -17,5 +26,7 @@
   cursor: pointer;
 }
 .body {
+  margin-top: 50px;
   padding: 15px;
+  z-index: 1;
 }
