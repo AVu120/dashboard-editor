@@ -12,7 +12,7 @@ import {
 import styles from "./AppHeader.module.scss";
 import { IWidgetPosition } from "../../../types/common";
 import { AddIcon } from "@chakra-ui/icons";
-import { ColorModeSwitcher } from "../../../ColorModeSwitcher";
+// import { ColorModeSwitcher } from "../../../ColorModeSwitcher";
 
 interface IAppHeaderProps {
   isEditorModeOn: boolean;
@@ -27,11 +27,11 @@ const AppHeader: FC<IAppHeaderProps> = ({
   addWidget,
 }) => {
   const allWidgetOptions = [
-    "SimpleLineChart",
-    "StackedAreaChart",
-    "MixBarChart",
-    "StackedBarChart",
-    "SimpleScatterChart",
+    "Simple Line Chart",
+    "Stacked Area Chart",
+    "Mixed Bar Chart",
+    "Stacked Bar Chart",
+    "Simple Scatter Chart",
   ];
 
   const availableWidgetOptions = allWidgetOptions.filter(
@@ -68,7 +68,7 @@ const AppHeader: FC<IAppHeaderProps> = ({
           </MenuList>
         </Menu>
       </nav>
-      <ColorModeSwitcher />
+      {/* <ColorModeSwitcher /> */}
     </header>
   );
 };

@@ -8,7 +8,7 @@ import { IWidgetPosition } from "../src/types/common";
 import AppHeader from "./components/common/appHeader/AppHeader";
 import "./App.scss";
 /**
- * TODO write function
+ * TODO:
  * 1. Make placeholder app page. (DONE)
  * 2. Make placeholder editor page. (DONE)
  * 3. Make placeholder read page. (DONE)
@@ -16,35 +16,30 @@ import "./App.scss";
  * 5. Build switch in top-left corner to toggle between editor and read pages. (DONE)
  * 6. Switch to editor mode. (DONE)
  * 7. Make placeholder for widget component (DONE)
- * 8. Create chart component with https://www.npmjs.com/package/recharts starting with simple bar chart with mock data.
- * 9. Create stacked bar chart with mock data.
- * 10. Create add widget button with dropdown that allows you to toggle between chart types.
- * 11. Create draggable/resizable grid with https://www.npmjs.com/package/react-grid-layout. (DONE)
- * 12. Make responsive and performant. (DONE)
- * 13. Create empty widget panel. (DONE)
- * 14. Make it 2 x 2 squares by default. (DONE)
- * 15. Make responsive and performant. (DONE)
- * 16. Make resizable/draggable (and make sure mouse icon corresponds to resize/drag region and hover turns border green). (DONE)
- * 17. Make the widget panel display the mock simple bar chart.
- * 18. Mock multiples of this widget panel, make sure everything works. (DONE)
- * 19. Make responsive and performant. (DONE)
- * 21. Add a delete option which deletes the widget. (DONE)
- * 22. Make sure still responsive and performant. (DONE)
- * 23. Try and create a base of 6 * X matrix where 6 is a fixed
+ * 8. Create add widget button with dropdown that allows you to toggle between chart types. (DONE)
+ * 9. Create draggable/resizable grid with https://www.npmjs.com/package/react-grid-layout. (DONE)
+ * 10. Make responsive and performant. (DONE)
+ * 11. Create empty widget panel. (DONE)
+ * 12. Make it 2 x 2 squares by default. (DONE)
+ * 13. Make responsive and performant. (DONE)
+ * 14. Make resizable/draggable (and make sure mouse icon corresponds to resize/drag region and hover turns border green). (DONE)
+ * 15. Make the widget panel display the mock simple bar chart. (DONE)
+ * 16. Mock multiples of this widget panel, make sure everything works. (DONE)
+ * 17. Make responsive and performant. (DONE)
+ * 18. Add a delete option which deletes the widget. (DONE)
+ * 19. Make sure still responsive and performant. (DONE)
+ * 20. Try and create a base of 6 * X matrix where 6 is a fixed
  *     number of columns and X is a number of rows which increments dynamically as more widgets are added to the board. Min 2 rows when dashboard is empty
  *     , otherwise it is X + 1 (e.g. 3 rows when 2 are populated with widgets where 3rd row is empty). (DONE)
- * 24. Try and create the background of empty panel tiles within react-grid-layout component. If can't do, create a fixed component for this and position it underneath the
+ * 21. Try and create the background of empty panel tiles within react-grid-layout component. If can't do, create a fixed component for this and position it underneath the
  *     react-grid-layout component to look like a background. (DONE)
- * 25. Dashboards should not have empty rows. When widgets are deleted from the dashboard and empty rows are created – widgets below empty rows should shift to the top and fill up those empty rows. (DONE)
- * 26. Make dashboard empty on app mount. (DONE)
- * 27. Make 'add widget' button actually add the corresponding widget panel to the dashboard.
- * 28. Make sure the added widget type is automatically removed from the 'add widget' button's dropdown options.
- * 29. Add 4/5 more chart types with corresponding mock data.
- * 30. Add a fetch function/api-calling service/module which exports a fetch-data-for-this-widget-type function to the editor page. This will basically mock a call to
- * the backend and simulate a tiny delay (e.g. 2s) as if the backend was actually real.
- * 31. When you click a dropdown option of the 'add widget' button, display a new widget panel with a loading skeleton inside it that renders the 'real' chart inside it after the fake 2s delay.
- * 32. Write a ton of tests.
+ * 21. Dashboards should not have empty rows. When widgets are deleted from the dashboard and empty rows are created – widgets below empty rows should shift to the top and fill up those empty rows. (DONE)
+ * 22. Make dashboard empty on app mount. (DONE)
+ * 23. Make 'add widget' button actually add the corresponding widget panel to the dashboard. (DONE)
+ * 24. Make sure the added widget type is automatically removed from the 'add widget' button's dropdown options. (DONE)
+ * 25. Add 4/5 more chart types with corresponding mock data. (DONE)
  */
+
 export const App: FC = () => {
   const [isEditorModeOn, setIsEditorModeOn] = useState(true);
   const [layout, setLayout] = useState<IWidgetPosition[]>([]);

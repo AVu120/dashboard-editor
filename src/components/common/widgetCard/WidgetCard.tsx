@@ -19,9 +19,12 @@ const WidgetCard: FC<IWidgetCardProps> = ({
       }`}
     >
       <header className={styles.header}>
-        <div>{i}</div>
-        {isEditorModeOn && <CloseButton onClick={() => deleteWidget(i)} />}
+        <div></div>
+        {isEditorModeOn && (
+          <CloseButton onClick={() => deleteWidget(i)} size="sm" />
+        )}
       </header>
+      <div className={styles.body}>{i}</div>
     </div>
   );
 };
