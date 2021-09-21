@@ -12,8 +12,8 @@ import styles from "./App.module.scss";
  * 2. Make placeholder editor page. (DONE)
  * 3. Make placeholder read page. (DONE)
  * 4. Put placeholder editor and read pages in app page. (DONE)
- * 5. Build switch in top-left corner to toggle between editor and read pages.
- * 6. Switch to editor mode.
+ * 5. Build switch in top-left corner to toggle between editor and read pages. (DONE)
+ * 6. Switch to editor mode. (DONE)
  * 7. Make placeholder for widget component
  * 8. Create chart component with https://www.npmjs.com/package/recharts starting with simple bar chart with mock data.
  * 9. Create stacked bar chart with mock data.
