@@ -1,11 +1,18 @@
-import { ChakraProvider, theme } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  FormControl,
+  FormLabel,
+  theme,
+} from "@chakra-ui/react";
 import React, { FC, ChangeEvent, useState } from "react";
 import { Switch } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import Editor from "./pages/editor/Editor";
 import Dashboard from "./pages/dashboard/Dashboard";
 import styles from "./App.module.scss";
-
+import { NUMBER_OF_COLUMNS } from "../src/utils/constants";
+import { IWidgetPosition } from "../src/types/common";
+import { AddIcon } from "@chakra-ui/icons";
 /**
  * TODO write function
  * 1. Make placeholder app page. (DONE)
@@ -47,23 +54,72 @@ import styles from "./App.module.scss";
  */
 export const App: FC = () => {
   const [isEditorModeOn, setIsEditorModeOn] = useState(true);
+  const [layout, setLayout] = useState<IWidgetPosition[]>([]);
+
+  /**
+   * @description Add a new widget add the end of the current widget layout.
+   * @param i index/identifer of widget
+   */
+  const addWidget = (i: string): void => {
+    if (layout.length) {
+      const lastWidgetPosition = layout[layout.length - 1];
+      return setLayout(
+        (currentLayout: IWidgetPosition[]): IWidgetPosition[] => [
+          ...currentLayout,
+          {
+            i,
+            x:
+              lastWidgetPosition.x >= NUMBER_OF_COLUMNS - 2
+                ? 0
+                : lastWidgetPosition.x + 2,
+            y:
+              lastWidgetPosition.x >= NUMBER_OF_COLUMNS - 2
+                ? lastWidgetPosition.y + 2
+                : lastWidgetPosition.y,
+            w: 2,
+            h: 2,
+          },
+        ]
+      );
+    }
+    setLayout([{ i: "0", x: 0, y: 0, w: 2, h: 2 }]);
+  };
 
   return (
     <ChakraProvider theme={theme}>
       <header className={styles.header}>
-        <nav>
-          Editor Mode{" "}
-          <Switch
-            isChecked={isEditorModeOn}
-            onChange={(e: ChangeEvent<HTMLInputElement>): void =>
-              setIsEditorModeOn(e.target.checked)
+        <nav className={styles.nav}>
+          <FormControl display="flex" alignItems="center">
+            <FormLabel htmlFor="editor-mode" mb="0">
+              Editor Mode
+            </FormLabel>
+            <Switch
+              id="editor-mode"
+              isChecked={isEditorModeOn}
+              onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+                setIsEditorModeOn(e.target.checked)
+              }
+            />
+          </FormControl>
+          <AddIcon
+            className={styles.addWidgetButton}
+            onClick={() =>
+              addWidget(
+                layout.length
+                  ? (Number(layout[layout.length - 1].i) + 1).toString()
+                  : "0"
+              )
             }
           />
         </nav>
         <ColorModeSwitcher />
       </header>
       <body className={styles.body}>
-        {isEditorModeOn ? <Editor /> : <Dashboard />}
+        {isEditorModeOn ? (
+          <Editor layout={layout} setLayout={setLayout} />
+        ) : (
+          <Dashboard />
+        )}
       </body>
     </ChakraProvider>
   );

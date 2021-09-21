@@ -7,6 +7,15 @@
   padding: 0 5px 0 15px;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.addWidgetButton {
+  cursor: pointer;
+}
 .body {
   padding: 15px;
 }
