@@ -1,5 +1,6 @@
 import { ChakraProvider, theme } from "@chakra-ui/react";
-import React, { FC } from "react";
+import React, { FC, ChangeEvent, useState } from "react";
+import { Switch } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import Editor from "./pages/editor/Editor";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -44,15 +45,26 @@ import styles from "./App.module.scss";
  * 31. When you click a dropdown option of the 'add widget' button, display a new widget panel with a loading skeleton inside it that renders the 'real' chart inside it after the fake 2s delay.
  * 32. Write a ton of tests.
  */
-export const App: FC = () => (
-  <ChakraProvider theme={theme}>
-    <header className={styles.header}>
-      <nav>Navbar placeholder</nav>
-      <ColorModeSwitcher />
-    </header>
-    <body>
-      <Editor />
-      <Dashboard />
-    </body>
-  </ChakraProvider>
-);
+export const App: FC = () => {
+  const [isEditorModeOn, setIsEditorModeOn] = useState(true);
+
+  return (
+    <ChakraProvider theme={theme}>
+      <header className={styles.header}>
+        <nav>
+          Editor Mode{" "}
+          <Switch
+            isChecked={isEditorModeOn}
+            onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+              setIsEditorModeOn(e.target.checked)
+            }
+          />
+        </nav>
+        <ColorModeSwitcher />
+      </header>
+      <body className={styles.body}>
+        {isEditorModeOn ? <Editor /> : <Dashboard />}
+      </body>
+    </ChakraProvider>
+  );
+};
