@@ -16,11 +16,22 @@ const Editor: FC<IEditorProps> = ({
   deleteWidget,
   isEditorModeOn,
 }) => {
-  const numberOfEmptyPanelsInGrid =
-    // layout.length
-    //   ? Math.max(...layout.map((widget) => widget.y)) * 24 + 24
-    //   : 24;
-    48;
+  let numberOfEmptyPanelsInGrid = 12;
+
+  /* Dashboard configuration interface should be represented by a 6 * X matrix where 6 is a fixed number of columns and X is a number of rows which increments 
+  dynamically as more widgets are added to the dashboard. The minimal number of rows is 2 when a dashboard is empty, otherwise it is X + 1 additional empty row 
+  when a dashboard is already populated with widgets (e.g. if 2 rows are occupied, display 3 with the 3rd being a completely empty row).
+  */
+  if (layout.length) {
+    const maxWidgetYPosition = Math.max(...layout.map((widgdet) => widgdet.y));
+    const maxHeightofHighestWidget = Math.max(
+      ...layout
+        .filter((widget) => widget.y === maxWidgetYPosition)
+        .map((widget) => widget.h)
+    );
+    numberOfEmptyPanelsInGrid =
+      (maxWidgetYPosition + maxHeightofHighestWidget + 1) * 6;
+  }
   return (
     <>
       <div style={{ position: "relative" }}>

@@ -34,17 +34,16 @@ import { AddIcon } from "@chakra-ui/icons";
  * 16. Make resizable/draggable (and make sure mouse icon corresponds to resize/drag region and hover turns border green). (DONE)
  * 17. Make the widget panel display the mock simple bar chart.
  * 18. Mock multiples of this widget panel, make sure everything works. (DONE)
- * 19. Make responsive and performant.
- * 20. Add a menu icon dropdown in the top-right corner of each widget.
+ * 19. Make responsive and performant. (DONE)
  * 21. Add a delete option which deletes the widget. (DONE)
- * 22. Make sure still responsive and performant.
+ * 22. Make sure still responsive and performant. (DONE)
  * 23. Try and create a base of 6 * X matrix where 6 is a fixed
  *     number of columns and X is a number of rows which increments dynamically as more widgets are added to the board. Min 2 rows when dashboard is empty
- *     , otherwise it is X + 1 (e.g. 3 rows when 2 are populated with widgets where 3rd row is empty).
+ *     , otherwise it is X + 1 (e.g. 3 rows when 2 are populated with widgets where 3rd row is empty). (DONE)
  * 24. Try and create the background of empty panel tiles within react-grid-layout component. If can't do, create a fixed component for this and position it underneath the
- *     react-grid-layout component to look like a background.
- * 25. Dashboards should not have empty rows. When widgets are deleted from the dashboard and empty rows are created – widgets below empty rows should shift to the top and fill up those empty rows.
- * 26. Make dashboard empty on app mount.
+ *     react-grid-layout component to look like a background. (DONE)
+ * 25. Dashboards should not have empty rows. When widgets are deleted from the dashboard and empty rows are created – widgets below empty rows should shift to the top and fill up those empty rows. (DONE)
+ * 26. Make dashboard empty on app mount. (DONE)
  * 27. Make 'add widget' button actually add the corresponding widget panel to the dashboard.
  * 28. Make sure the added widget type is automatically removed from the 'add widget' button's dropdown options.
  * 29. Add 4/5 more chart types with corresponding mock data.
