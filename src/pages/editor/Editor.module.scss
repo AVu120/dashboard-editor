@@ -1,29 +1,18 @@
-.Editor {
-  position: relative;
-}
-
 .emptyPanelsgrid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px 10px;
+  grid-gap: 12.5px 10px;
   padding: 10px;
-  // z-index: 1;
-  // position: absolute;
-  // top: 0;
+  position: absolute;
+  width: 100%;
+  top: 2px;
   background-color: inherit;
 }
 
 .emptyPanel {
   background-color: rgb(235, 240, 250);
-  height: 150px;
+  height: 147px;
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
-
-// .widgetLayout {
-//   background-color: inherit;
-//   z-index: 2;
-//   position: absolute;
-//   top: 0px;
-// }

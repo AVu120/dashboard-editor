@@ -20,18 +20,20 @@ const Editor: FC<IEditorProps> = ({
     // layout.length
     //   ? Math.max(...layout.map((widget) => widget.y)) * 24 + 24
     //   : 24;
-    24;
+    48;
   return (
-    <div className={styles.Editor}>
-      <div className={styles.emptyPanelsgrid}>
-        {Array.from({ length: numberOfEmptyPanelsInGrid }).map((_) => (
-          <div className={styles.emptyPanel}></div>
-        ))}
+    <>
+      <div style={{ position: "relative" }}>
+        <div className={styles.emptyPanelsgrid}>
+          {Array.from({ length: numberOfEmptyPanelsInGrid }).map((_) => (
+            <div className={styles.emptyPanel}></div>
+          ))}
+        </div>
       </div>
       <div className={styles.widgetLayout}>
         <WidgetGrid {...{ layout, setLayout, deleteWidget, isEditorModeOn }} />
       </div>
-    </div>
+    </>
   );
 };
 
