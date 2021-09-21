@@ -3,6 +3,7 @@ import {
   FormControl,
   FormLabel,
   theme,
+  IconButton,
 } from "@chakra-ui/react";
 import React, { FC, ChangeEvent, useState } from "react";
 import { Switch } from "@chakra-ui/react";
@@ -85,6 +86,15 @@ export const App: FC = () => {
     setLayout([{ i: "0", x: 0, y: 0, w: 2, h: 2 }]);
   };
 
+  /**
+   * @description Delete widget.
+   * @param i index/identifer of widget
+   */
+  const deleteWidget = (i: string): void =>
+    setLayout((currentLayout) =>
+      currentLayout.filter((widget) => widget.i !== i)
+    );
+
   return (
     <ChakraProvider theme={theme}>
       <header className={styles.header}>
@@ -101,7 +111,7 @@ export const App: FC = () => {
               }
             />
           </FormControl>
-          <AddIcon
+          <IconButton
             className={styles.addWidgetButton}
             onClick={() =>
               addWidget(
@@ -110,13 +120,19 @@ export const App: FC = () => {
                   : "0"
               )
             }
+            aria-label="Add Widget"
+            icon={<AddIcon />}
           />
         </nav>
         <ColorModeSwitcher />
       </header>
       <body className={styles.body}>
         {isEditorModeOn ? (
-          <Editor layout={layout} setLayout={setLayout} />
+          <Editor
+            layout={layout}
+            setLayout={setLayout}
+            deleteWidget={deleteWidget}
+          />
         ) : (
           <Dashboard />
         )}

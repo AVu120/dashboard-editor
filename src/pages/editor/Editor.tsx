@@ -9,9 +9,10 @@ const ReactGridLayout = WidthProvider(RGL);
 interface IEditorProps {
   layout: IWidgetPosition[];
   setLayout: Dispatch<SetStateAction<IWidgetPosition[]>>;
+  deleteWidget: Dispatch<SetStateAction<IWidgetPosition[]>>;
 }
 
-const Editor: FC<IEditorProps> = ({ layout, setLayout }) => {
+const Editor: FC<IEditorProps> = ({ layout, setLayout, deleteWidget }) => {
   return (
     <ReactGridLayout
       className="layout"
@@ -23,7 +24,12 @@ const Editor: FC<IEditorProps> = ({ layout, setLayout }) => {
     >
       {layout.map((item) => (
         <div key={item.i}>
-          <WidgetCard title={item.i} data-grid={item} />
+          <WidgetCard
+            title={item.i}
+            data-grid={item}
+            deleteWidget={deleteWidget}
+            i={item.i}
+          />
         </div>
       ))}
     </ReactGridLayout>
