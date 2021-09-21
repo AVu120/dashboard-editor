@@ -1,19 +1,11 @@
-import {
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  theme,
-  IconButton,
-} from "@chakra-ui/react";
-import React, { FC, ChangeEvent, useState } from "react";
-import { Switch } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { ChakraProvider, theme } from "@chakra-ui/react";
+import React, { FC, useState } from "react";
 import Editor from "./pages/editor/Editor";
 import Dashboard from "./pages/dashboard/Dashboard";
 import styles from "./App.module.scss";
 import { NUMBER_OF_COLUMNS } from "../src/utils/constants";
 import { IWidgetPosition } from "../src/types/common";
-import { AddIcon } from "@chakra-ui/icons";
+import AppHeader from "./components/common/appHeader/AppHeader";
 /**
  * TODO write function
  * 1. Make placeholder app page. (DONE)
@@ -97,35 +89,9 @@ export const App: FC = () => {
   return (
     <ChakraProvider theme={theme}>
       <div className={styles.App}>
-        <header className={styles.header}>
-          <nav className={styles.nav}>
-            <FormControl display="flex" alignItems="center">
-              <FormLabel htmlFor="editor-mode" mb="0">
-                Editor Mode
-              </FormLabel>
-              <Switch
-                id="editor-mode"
-                isChecked={isEditorModeOn}
-                onChange={(e: ChangeEvent<HTMLInputElement>): void =>
-                  setIsEditorModeOn(e.target.checked)
-                }
-              />
-            </FormControl>
-            <IconButton
-              className={styles.addWidgetButton}
-              onClick={() =>
-                addWidget(
-                  layout.length
-                    ? (Number(layout[layout.length - 1].i) + 1).toString()
-                    : "0"
-                )
-              }
-              aria-label="Add Widget"
-              icon={<AddIcon />}
-            />
-          </nav>
-          <ColorModeSwitcher />
-        </header>
+        <AppHeader
+          {...{ isEditorModeOn, layout, setIsEditorModeOn, addWidget }}
+        />
         <body className={styles.body}>
           {isEditorModeOn ? (
             <Editor
