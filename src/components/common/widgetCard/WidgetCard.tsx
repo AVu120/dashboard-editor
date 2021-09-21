@@ -1,10 +1,10 @@
-import React, { FC, Dispatch, SetStateAction } from "react";
+import React, { FC } from "react";
 import styles from "./WidgetCard.module.scss";
 import { CloseButton } from "@chakra-ui/react";
-import { IWidgetPosition } from "../../../../types/common";
+
 interface IWidgetCardProps {
   title: string;
-  deleteWidget: Dispatch<SetStateAction<IWidgetPosition[]>>;
+  deleteWidget: (i: string) => void;
   i: string;
 }
 const WidgetCard: FC<IWidgetCardProps> = ({ title, deleteWidget, i }) => {

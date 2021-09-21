@@ -1,5 +1,5 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
-import WidgetCard from "../../components/common/widgets/WidgetCard/WidgetCard";
+import WidgetCard from "../../components/common/widgetCard/WidgetCard";
 import RGL, { WidthProvider } from "react-grid-layout";
 import { IWidgetPosition } from "../../types/common";
 import "react-grid-layout/css/styles.css";
@@ -9,7 +9,7 @@ const ReactGridLayout = WidthProvider(RGL);
 interface IEditorProps {
   layout: IWidgetPosition[];
   setLayout: Dispatch<SetStateAction<IWidgetPosition[]>>;
-  deleteWidget: Dispatch<SetStateAction<IWidgetPosition[]>>;
+  deleteWidget: (i: string) => void;
 }
 
 const Editor: FC<IEditorProps> = ({ layout, setLayout, deleteWidget }) => {
