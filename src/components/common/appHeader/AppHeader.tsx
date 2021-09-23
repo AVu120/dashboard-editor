@@ -50,6 +50,7 @@ const AppHeader: FC<IAppHeaderProps> = ({
             onChange={(e: ChangeEvent<HTMLInputElement>): void =>
               setIsEditorModeOn(e.target.checked)
             }
+            className={styles.editorModeSwitch}
           />
         </FormControl>
         {isEditorModeOn && (
@@ -72,7 +73,7 @@ const AppHeader: FC<IAppHeaderProps> = ({
                     </MenuItem>
                   ))
               ) : (
-                <MenuItem style={{ cursor: "default" }}>
+                <MenuItem className={styles.noMoreOptions}>
                   No options available.
                 </MenuItem>
               )}

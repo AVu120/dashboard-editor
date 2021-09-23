@@ -18,6 +18,11 @@
   column-gap: 20px;
 }
 
-.addWidgetButton {
-  cursor: pointer;
+.noMoreOptions {
+  cursor: default;
+}
+
+.editorModeSwitch {
+  position: relative;
+  top: 2px;
 }
