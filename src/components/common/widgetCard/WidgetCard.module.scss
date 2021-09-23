@@ -25,7 +25,9 @@
 .title {
   font-weight: bold;
   justify-content: center;
-  // text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .WidgetCardInEditMode {
