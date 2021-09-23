@@ -52,29 +52,33 @@ const AppHeader: FC<IAppHeaderProps> = ({
             }
           />
         </FormControl>
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label="add-widget-options"
-            icon={<AddIcon />}
-            variant="outline"
-          />
-          <MenuList>
-            {availableWidgetOptions.length ? (
-              availableWidgetOptions
-                .filter(
-                  (option) => !layout.some((widget) => widget.i === option)
-                )
-                .map((option) => (
-                  <MenuItem onClick={() => addWidget(option)}>
-                    {option}
-                  </MenuItem>
-                ))
-            ) : (
-              <MenuItem>No options available.</MenuItem>
-            )}
-          </MenuList>
-        </Menu>
+        {isEditorModeOn && (
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label="add-widget-options"
+              icon={<AddIcon />}
+              variant="outline"
+            />
+            <MenuList>
+              {availableWidgetOptions.length ? (
+                availableWidgetOptions
+                  .filter(
+                    (option) => !layout.some((widget) => widget.i === option)
+                  )
+                  .map((option) => (
+                    <MenuItem onClick={() => addWidget(option)}>
+                      {option}
+                    </MenuItem>
+                  ))
+              ) : (
+                <MenuItem style={{ cursor: "default" }}>
+                  No options available.
+                </MenuItem>
+              )}
+            </MenuList>
+          </Menu>
+        )}
       </nav>
       {/* <ColorModeSwitcher /> */}
     </header>
