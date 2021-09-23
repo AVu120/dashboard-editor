@@ -12,17 +12,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 20px;
 }
 
-.body {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  text-align: center;
+.headerInReadOnlyMode {
   justify-content: center;
 }
+.body {
+  flex: 1;
+  height: calc(100% - 20px);
+}
 .title {
-  font-size: 10px;
+  font-weight: bold;
+  justify-content: center;
+  // text-align: center;
 }
 
 .WidgetCardInEditMode {
