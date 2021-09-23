@@ -1,6 +1,7 @@
 {
   "name": "dashboard-editor",
   "version": "0.1.0",
+  "homepage": "https://avu120.github.io/dashboard-editor",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",
@@ -16,6 +17,7 @@
     "@types/react-dom": "^16.9.0",
     "eslint": "^7.32.0",
     "framer-motion": "^4.0.0",
+    "gh-pages": "^3.2.3",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -34,7 +36,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --max-warnings 0",
     "prepare": "husky install",
-    "preCommit": "yarn lint && yarn testOnly"
+    "preCommit": "yarn lint && yarn testOnly",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
