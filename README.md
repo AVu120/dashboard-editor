@@ -1,5 +1,11 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# Dashboard Editor
+
+![demo-gif](./public/demo.gif)
+Play with this app at https://avu120.github.io/dashboard-editor/.
+
+## About
+
+Create and customize your own dashboard.
 
 ## How to run the app
 
