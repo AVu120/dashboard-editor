@@ -3,7 +3,7 @@
 ![demo-gif](./public/demo.gif)
 Play with this app at https://avu120.github.io/dashboard-editor/.
 
-## About
+## Description
 
 Create and customize your own dashboard.
 
